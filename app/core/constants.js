@@ -1,6 +1,5 @@
 // @flow
-export const NEON_WALLET_RELEASE_LINK =
-  'https://github.com/CityOfZion/neon-wallet/releases'
+export const NEON_WALLET_RELEASE_LINK = 'https://github.com/verisfoundation/light-wallet/releases'
 
 export const NETWORK = {
   MAIN: 'MainNet',
@@ -50,8 +49,7 @@ export const NOTIFICATION_POSITIONS = {
   BOTTOM_LEFT: 'bl'
 }
 
-export const BIP44_PATH =
-  '8000002C' + '80000378' + '80000000' + '00000000' + '00000000'
+export const BIP44_PATH = '8000002C' + '80000378' + '80000000' + '00000000' + '00000000'
 
 export const MODAL_TYPES = {
   SEND: 'SEND',
@@ -133,5 +131,4 @@ export const CURRENCIES = {
   zar: { symbol: 'R ' }
 }
 
-export const FINDING_LEDGER_NOTICE =
-  'Looking for USB Devices. Please plugin your device and login.'
+export const FINDING_LEDGER_NOTICE = 'Looking for USB Devices. Please plugin your device and login.'
