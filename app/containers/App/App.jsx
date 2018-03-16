@@ -24,10 +24,9 @@ class App extends Component<Props> {
 
     checkVersion()
     initSettings()
-    upgradeUserWalletNEP6()
-      .catch((e) => {
-        showErrorNotification({ message: `Error upgrading legacy wallet: ${e.message}` })
-      })
+    upgradeUserWalletNEP6().catch(e => {
+      showErrorNotification({ message: `Error upgrading legacy wallet: ${e.message}` })
+    })
   }
 
   render () {
@@ -38,7 +37,6 @@ class App extends Component<Props> {
         <div className={styles.content}>{children}</div>
         <Notifications />
         <ModalRenderer />
-        <Footer />
       </div>
     )
   }

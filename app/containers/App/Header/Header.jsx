@@ -11,9 +11,13 @@ import PriceDisplay from './PriceDisplay'
 import Logout from './Logout'
 import styles from './Header.scss'
 
-import logo from '../../../images/neon-logo2.png'
+import logo from '../../../images/vrs_logo.svg'
 
-const Logo = () => <div><img src={logo} width='60px' /></div>
+const Logo = () => (
+  <div>
+    <img src={logo} width='120px' />
+  </div>
+)
 
 type Props = {
   blockHeight: number,
@@ -25,7 +29,7 @@ type Props = {
   networkId: string,
   networks: Array<NetworkItemType>,
   loadWalletData: (?boolean) => any,
-  setNetworkId: (string) => any
+  setNetworkId: string => any
 }
 
 const Header = ({
@@ -42,24 +46,20 @@ const Header = ({
 }: Props) => (
   <div className={styles.container}>
     <Logo />
-    {isLoggedIn &&
-    <div className={styles.navBar}>
-      <PriceDisplay
-        neoPrice={neoPrice}
-        gasPrice={gasPrice}
-        currencyCode={currencyCode}
-      />
-      <WalletBlockHeight blockHeight={blockHeight} />
-      <WalletVersion version={version} />
-      <NetworkSwitch
-        networkId={networkId}
-        networks={networks}
-        setNetworkId={setNetworkId}
-        loadWalletData={loadWalletData}
-      />
-      <Logout onClick={logout} />
-    </div>
-    }
+    {isLoggedIn && (
+      <div className={styles.navBar}>
+        <PriceDisplay neoPrice={neoPrice} gasPrice={gasPrice} currencyCode={currencyCode} />
+        <WalletBlockHeight blockHeight={blockHeight} />
+        <WalletVersion version={version} />
+        <NetworkSwitch
+          networkId={networkId}
+          networks={networks}
+          setNetworkId={setNetworkId}
+          loadWalletData={loadWalletData}
+        />
+        <Logout onClick={logout} />
+      </div>
+    )}
   </div>
 )
 

@@ -1,14 +1,14 @@
 // backgrounds and buttons
 $main-background: #fff;
-$primary-color: #4d933b;
+$primary-color: #278cd6;
+$secondary-color: #0f3552;
 $default-button: $primary-color;
-$default-button-hover: #5eb248;
-$dark-button: #236312;
-$dark-button-hover: #33881c;
+$default-button-hover: lighten($primary-color, 20%);
+$dark-button: $secondary-color;
+$dark-button-hover: lighten($secondary-color, 20%);
 $dark-input-color: #e8f4e5;
-$bright-button: #76b466;
-$bright-button-hover: #8cd678;
-$secondary-background: #e8f4e5;
+$bright-button: saturate($primary-color, 30%);
+$secondary-background: lighten($bright-button, 20%);
 $spacer-color: #efefef;
 $third-background: #e6f2ff;
 

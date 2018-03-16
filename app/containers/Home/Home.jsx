@@ -18,9 +18,9 @@ const Home = () => (
     <Link to={ROUTES.LOGIN_PRIVATE_KEY}>
       <div className={classNames('linkBox', styles.linkBox)}>Login using a private key</div>
     </Link>
-    <Link to={ROUTES.LOGIN_LEDGER_NANO_S}>
+    {/* <Link to={ROUTES.LOGIN_LEDGER_NANO_S}>
       <div className={classNames('linkBox', styles.linkBox)}>Login using a Ledger</div>
-    </Link>
+    </Link> */}
     <Link to={ROUTES.CREATE_WALLET}>
       <div className={classNames('linkBox', styles.linkBox, styles.linkBoxAlt)}>Create a new wallet</div>
     </Link>
@@ -28,7 +28,7 @@ const Home = () => (
       <div className={classNames('linkBox', styles.linkBox, styles.linkBoxAlt)}>Encrypt an existing key</div>
     </Link>
     <Link to={ROUTES.SETTINGS}>
-      <div className={classNames('linkBox', styles.linkBox, styles.linkBoxAlt)}>Manage Veris settings</div>
+      <div className={classNames('linkBox', styles.linkBox, styles.linkBoxAlt)}>Manage Settings</div>
     </Link>
   </div>
 )
