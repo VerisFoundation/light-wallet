@@ -181,7 +181,7 @@ export default class Settings extends Component<Props, State> {
       <div id='settings'>
         <div className='description'>Manage your Veris wallet accounts and settings</div>
         <div className='settingsForm'>
-          <div className='settingsItem'>
+          {/* <div className='settingsItem'>
             <div className='itemTitle'>Tokens</div>
             <Button onClick={this.openTokenModal}>Manage Tokens</Button>
           </div>
@@ -194,7 +194,7 @@ export default class Settings extends Component<Props, State> {
                 </option>
               ))}
             </select>
-          </div>
+          </div> */}
           <div className='settingsItem'>
             <div className='itemTitle'>Currency</div>
             <select value={currency} onChange={this.updateCurrencySettings}>

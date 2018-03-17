@@ -8,28 +8,22 @@ import { ROUTES } from '../../core/constants'
 import styles from './Home.scss'
 
 const Home = () => (
-  <div id='home'>
-    <Link to={ROUTES.LOGIN_LOCAL_STORAGE}>
-      <div className={classNames('linkBox', styles.linkBox)}>Login using a saved wallet</div>
-    </Link>
-    <Link to={ROUTES.LOGIN_NEP2}>
-      <div className={classNames('linkBox', styles.linkBox)}>Login using an encrypted key</div>
-    </Link>
-    <Link to={ROUTES.LOGIN_PRIVATE_KEY}>
-      <div className={classNames('linkBox', styles.linkBox)}>Login using a private key</div>
-    </Link>
-    {/* <Link to={ROUTES.LOGIN_LEDGER_NANO_S}>
-      <div className={classNames('linkBox', styles.linkBox)}>Login using a Ledger</div>
-    </Link> */}
-    <Link to={ROUTES.CREATE_WALLET}>
-      <div className={classNames('linkBox', styles.linkBox, styles.linkBoxAlt)}>Create a new wallet</div>
-    </Link>
-    <Link to={ROUTES.ENCRYPT_KEY}>
-      <div className={classNames('linkBox', styles.linkBox, styles.linkBoxAlt)}>Encrypt an existing key</div>
-    </Link>
-    <Link to={ROUTES.SETTINGS}>
-      <div className={classNames('linkBox', styles.linkBox, styles.linkBoxAlt)}>Manage Settings</div>
-    </Link>
+  <div className={styles.home}>
+    <nav>
+      <Link to={ROUTES.LOGIN_LOCAL_STORAGE}>Login using a saved wallet</Link>
+      <Link to={ROUTES.LOGIN_NEP2}>Login using an encrypted key</Link>
+      <Link to={ROUTES.LOGIN_PRIVATE_KEY}>Login using a private key</Link>
+      {/* <Link to={ROUTES.LOGIN_LEDGER_NANO_S}>Login using a Ledger</Link> */}
+      <Link to={ROUTES.CREATE_WALLET} className={styles.alt}>
+        Create a new wallet
+      </Link>
+      <Link to={ROUTES.ENCRYPT_KEY} className={styles.alt}>
+        Encrypt an existing key
+      </Link>
+      <Link to={ROUTES.SETTINGS} className={styles.alt}>
+        Manage Settings
+      </Link>
+    </nav>
   </div>
 )
 

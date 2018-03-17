@@ -12,7 +12,7 @@ type Props = {
   claimRequest: boolean,
   disableClaimButton: boolean,
   claimWasUpdated: boolean,
-  claimAmount: number,
+  claimAmount: number
 }
 
 export default class Claim extends Component<Props> {
@@ -30,12 +30,9 @@ export default class Claim extends Component<Props> {
     const formattedAmount = formatGAS(claimAmount)
     return (
       <div>
-        <Tooltip
-          title='You can claim GAS once every 5 minutes'
-          disabled={!disableClaimButton}
-        >
+        <Tooltip title='You can claim VRC once every 5 minutes' disabled={!disableClaimButton}>
           <Button id='claim' disabled={shouldDisableButton} onClick={() => doGasClaim()}>
-            Claim {formattedAmount} GAS
+            Claim {formattedAmount} VRC
           </Button>
         </Tooltip>
       </div>

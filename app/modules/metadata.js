@@ -38,14 +38,10 @@ export const setBlockHeight = (blockHeight: number) => ({
   payload: { blockHeight }
 })
 
-export const setBlockExplorer = (blockExplorer: ExplorerType) => async (
-  dispatch: DispatchType
-) => {
+export const setBlockExplorer = (blockExplorer: ExplorerType) => async (dispatch: DispatchType) => {
   storage.get('settings', (errorReading, settingsObj) => {
     if (errorReading) {
-      dispatch(
-        showErrorNotification({ message: 'error grabbing data from storage' })
-      )
+      dispatch(showErrorNotification({ message: 'error grabbing data from storage' }))
     }
     storage.set(
       'settings',
@@ -70,18 +66,12 @@ export const setBlockExplorer = (blockExplorer: ExplorerType) => async (
   })
 }
 
-export const setUserGeneratedTokens = (tokens: Array<TokenItemType>) => async (
-  dispatch: DispatchType
-) => {
+export const setUserGeneratedTokens = (tokens: Array<TokenItemType>) => async (dispatch: DispatchType) => {
   storage.get('settings', (errorReading, settingsObj) => {
     if (errorReading) {
-      dispatch(
-        showErrorNotification({ message: 'error grabbing data from storage' })
-      )
+      dispatch(showErrorNotification({ message: 'error grabbing data from storage' }))
     }
-    const userGeneratedTokens = tokens.filter(
-      (token: TokenItemType) => token.isUserGenerated
-    )
+    const userGeneratedTokens = tokens.filter((token: TokenItemType) => token.isUserGenerated)
     storage.set(
       'settings',
       {
@@ -105,10 +95,7 @@ export const setUserGeneratedTokens = (tokens: Array<TokenItemType>) => async (
   })
 }
 
-export const checkVersion = () => async (
-  dispatch: DispatchType,
-  getState: GetStateType
-) => {
+export const checkVersion = () => async (dispatch: DispatchType, getState: GetStateType) => {
   const state = getState()
   const net = getNetwork(state)
   const apiEndpoint = api.neonDB.getAPIEndpoint(net)
@@ -148,9 +135,7 @@ export const initSettings = () => async (dispatch: DispatchType) => {
   })
 }
 
-export const syncBlockHeight = (net: NetworkType) => async (
-  dispatch: DispatchType
-) => {
+export const syncBlockHeight = (net: NetworkType) => async (dispatch: DispatchType) => {
   const [_err, blockHeight] = await asyncWrap(api.neonDB.getWalletDBHeight(net)) // eslint-disable-line
   return dispatch(setBlockHeight(blockHeight))
 }
@@ -167,25 +152,18 @@ export const getAllTokens = (state: Object) => state.metadata.tokens
 export const getNetwork = createSelector(
   getNetworks,
   getNetworkId,
-  (networks, selectedNetworkId) =>
-    networks.find(({ id, value }) => id === selectedNetworkId).network
+  (networks, selectedNetworkId) => networks.find(({ id, value }) => id === selectedNetworkId).network
 )
 
-export const getTokensForNetwork = createSelector(
-  getAllTokens,
-  getNetworkId,
-  (allTokens, selectedNetworkId) =>
-    allTokens.filter(({ networkId }) => networkId === selectedNetworkId)
+export const getTokensForNetwork = createSelector(getAllTokens, getNetworkId, (allTokens, selectedNetworkId) =>
+  allTokens.filter(({ networkId }) => networkId === selectedNetworkId)
 )
 
 const generatePredfinedTokens = (): Array<TokenItemType> => {
   const tokens = []
   let id = 1
 
-  const getTokenEntry = (
-    scriptHash: string,
-    networkId: string
-  ) => ({
+  const getTokenEntry = (scriptHash: string, networkId: string) => ({
     id: `${id++}`,
     scriptHash,
     networkId,

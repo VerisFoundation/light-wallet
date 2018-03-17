@@ -1,5 +1,7 @@
 @import './variables';
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Raleway:300');
+
 @media print {
   #newWallet {
     font-size: 0.8em;
@@ -8,7 +10,8 @@
 }
 
 body {
-  font-family: 'helvetica neue', 'helvetica', sans-serif;
+  font-family: 'Open Sans', 'helvetica neue', 'helvetica', sans-serif;
+  font-weight: 400;
   font-size: 16px;
   padding: 0px;
   margin: 0px;
@@ -21,7 +24,9 @@ body {
 }
 
 input {
+  font-family: 'Open Sans', 'helvetica neue', 'helvetica', sans-serif;
   font-size: 1.2em;
+  font-weight: 300;
   padding: 7px 15px;
   border: none;
   font-weight: 200;

@@ -25,7 +25,7 @@ type Props = {
   GAS: string,
   tokenBalances: Array<TokenBalanceType>,
   loaded: boolean,
-  loadWalletData: Function,
+  loadWalletData: Function
 }
 
 const REFRESH_INTERVAL_MS = 30000
@@ -45,57 +45,43 @@ export default class Dashboard extends Component<Props> {
   }
 
   render () {
-    const {
-      showModal,
-      net,
-      address,
-      NEO,
-      GAS,
-      tokenBalances,
-      sendTransaction,
-      loaded
-    } = this.props
+    const { showModal, net, address, NEO, GAS, tokenBalances, sendTransaction, loaded } = this.props
 
     if (!loaded) {
-      return <Loader />
+      return (
+        <div id='dashboard' className={styles.container}>
+          <Loader />
+        </div>
+      )
     }
 
     return (
       <div id='dashboard' className={styles.container}>
         <div className={styles.content}>
-          <div className={styles.contentBox}>
-            <div className={styles.walletButtons}>
-              <div
-                className={classNames(styles.walletButton, styles.sendButton)}
-                onClick={() =>
-                  showModal(MODAL_TYPES.SEND, {
-                    NEO,
-                    GAS,
-                    tokenBalances,
-                    sendTransaction,
-                    net,
-                    address
-                  })
-                }
-              >
-                <FaArrowUpward className={styles.walletButtonIcon} />
-                <span className={styles.walletButtonText}>Send</span>
-              </div>
-              <div
-                className={styles.walletButton}
-                onClick={() => showModal(MODAL_TYPES.RECEIVE, { address })}
-              >
-                <FaArrowDownward className={styles.walletButtonIcon} />
-                <span className={styles.walletButtonText}>Receive</span>
-              </div>
+          <div className={styles.walletButtons}>
+            <div
+              className={classNames(styles.walletButton, styles.sendButton)}
+              onClick={() =>
+                showModal(MODAL_TYPES.SEND, {
+                  NEO,
+                  GAS,
+                  tokenBalances,
+                  sendTransaction,
+                  net,
+                  address
+                })
+              }
+            >
+              <FaArrowUpward className={styles.walletButtonIcon} />
+              <span className={styles.walletButtonText}>Send</span>
             </div>
-            <WalletInfo />
+            <div className={styles.walletButton} onClick={() => showModal(MODAL_TYPES.RECEIVE, { address })}>
+              <FaArrowDownward className={styles.walletButtonIcon} />
+              <span className={styles.walletButtonText}>Receive</span>
+            </div>
           </div>
-          <div
-            className={classNames(styles.contentBox, styles.transactionHistory)}
-          >
-            <TransactionHistory />
-          </div>
+          <WalletInfo />
+          <TransactionHistory />
         </div>
       </div>
     )

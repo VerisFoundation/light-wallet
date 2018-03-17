@@ -7,8 +7,8 @@ export const NETWORK = {
 }
 
 export const ASSETS = {
-  NEO: 'NEO',
-  GAS: 'GAS'
+  NEO: 'VRS',
+  GAS: 'VRC'
 }
 
 export const EXPLORERS = {

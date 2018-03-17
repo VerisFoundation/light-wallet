@@ -48,15 +48,15 @@ const Header = ({
     <Logo />
     {isLoggedIn && (
       <div className={styles.navBar}>
-        <PriceDisplay neoPrice={neoPrice} gasPrice={gasPrice} currencyCode={currencyCode} />
+        {/* <PriceDisplay neoPrice={neoPrice} gasPrice={gasPrice} currencyCode={currencyCode} /> */}
         <WalletBlockHeight blockHeight={blockHeight} />
         <WalletVersion version={version} />
-        <NetworkSwitch
+        {/* <NetworkSwitch
           networkId={networkId}
           networks={networks}
           setNetworkId={setNetworkId}
           loadWalletData={loadWalletData}
-        />
+        /> */}
         <Logout onClick={logout} />
       </div>
     )}

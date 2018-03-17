@@ -1,48 +1,55 @@
 @import '../../styles/variables';
 
 .button {
-    padding: 6px 12px;
-    border-width: 1px;
-    border-style: solid;
-    font-size: 1em;
-    color: $button-text;
+  padding: 6px 12px;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 1em;
+  color: $button-text;
+  background-color: $default-button;
+  cursor: pointer;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.8rem;
+  padding: 12px;
+  letter-spacing: 0.1rem;
+
+  + .button,
+  + a .button {
+    margin-left: 10px;
+  }
+
+  &.primary {
     background-color: $default-button;
-    cursor: pointer;
-
-    + .button, + a .button {
-        margin-left: 10px;
+    border-color: $default-button;
+    &:hover:not([disabled]) {
+      background-color: $default-button-hover;
+      border-color: $default-button-hover;
     }
+  }
 
-    &.primary {
-        background-color: $default-button;
-        border-color: $default-button;
-        &:hover:not([disabled]) {
-            background-color: $default-button-hover;
-            border-color: $default-button-hover;
-        }
+  &.secondary {
+    background-color: $dark-button;
+    border-color: $dark-button;
+    &:hover:not([disabled]) {
+      background-color: $dark-button-hover;
+      border-color: $dark-button-hover;
     }
+  }
 
-    &.secondary {
-        background-color: $dark-button;
-        border-color: $dark-button;
-        &:hover:not([disabled]) {
-            background-color: $dark-button-hover;
-            border-color: $dark-button-hover;
-        }
+  &.cancel {
+    background-color: transparent;
+    border-color: #999;
+    color: #000;
+    &:hover:not([disabled]) {
+      background-color: transparent;
+      border-color: #999;
     }
+  }
 
-    &.cancel {
-        background-color: transparent;
-        border-color: #999;
-        color: #000;
-        &:hover:not([disabled]) {
-            background-color: transparent;
-            border-color: #999;
-        }
-    }
-
-    &[disabled] {
-        opacity: .6;
-        cursor: default;
-    }
+  &[disabled] {
+    opacity: 0.6;
+    cursor: default;
+  }
 }

@@ -35,16 +35,12 @@ type Props = {
   allTokens: Array<TokenItemType>,
   setUserGeneratedTokens: Function,
   networks: Array<NetworkItemType>,
-  networkId: string,
+  networkId: string
 }
 
 export default class WalletInfo extends Component<Props> {
   refreshBalance = () => {
-    const {
-      showSuccessNotification,
-      showErrorNotification,
-      loadWalletData
-    } = this.props
+    const { showSuccessNotification, showErrorNotification, loadWalletData } = this.props
     loadWalletData()
       .then(response => {
         showSuccessNotification({
@@ -95,10 +91,10 @@ export default class WalletInfo extends Component<Props> {
           <div className='split'>
             <div className='label'>{ASSETS.NEO}</div>
             <div className='amountBig amountNeo'>{formatNEO(NEO)}</div>
-            <div className='fiat neoWalletValue'>
+            {/* <div className='fiat neoWalletValue'>
               {currencySymbol}
               {formatFiat(neoValue)} {displayCurrencyCode}
-            </div>
+            </div> */}
           </div>
           <div className='split'>
             <div className='label'>{ASSETS.GAS}</div>
@@ -107,22 +103,16 @@ export default class WalletInfo extends Component<Props> {
                 {formatGAS(GAS, true)}
               </Tooltip>
             </div>
-            <div className='fiat gasWalletValue'>
+            {/* <div className='fiat gasWalletValue'>
               {currencySymbol}
               {formatFiat(gasValue)} {displayCurrencyCode}
-            </div>
+            </div> */}
           </div>
-          <div className='fiat walletTotal'>
+          {/* <div className='fiat walletTotal'>
             Total {currencySymbol}
             {formatFiat(totalValue)} {displayCurrencyCode}
-          </div>
-          <div
-            onClick={this.refreshBalance}
-            className={classNames(
-              styles.refreshIconContainer,
-              'refreshBalance'
-            )}
-          >
+          </div> */}
+          <div onClick={this.refreshBalance} className={classNames(styles.refreshIconContainer, 'refreshBalance')}>
             <Tooltip title='Refresh account balance'>
               <MdSync id='refresh' className={styles.refreshIcon} />
             </Tooltip>
@@ -130,7 +120,7 @@ export default class WalletInfo extends Component<Props> {
         </div>
         <div className='spacer' />
         <Claim />
-        <TokenBalances tokenBalances={tokenBalances} showModal={showModal} />
+        {/* <TokenBalances tokenBalances={tokenBalances} showModal={showModal} />
         <div
           className={(styles.walletButton, styles.icoButton)}
           onClick={() =>
@@ -162,7 +152,7 @@ export default class WalletInfo extends Component<Props> {
           }
         >
           <Button>Participate in a token sale</Button>
-        </div>
+        </div> */}
       </div>
     )
   }
