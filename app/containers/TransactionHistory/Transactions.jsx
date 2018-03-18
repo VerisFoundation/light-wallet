@@ -24,7 +24,7 @@ export default class Transactions extends React.Component<Props> {
 
     return (
       <ul id='transactionList' className={classNames(styles.transactionList, className)}>
-        {transactions.map((tx) => (
+        {transactions.map(tx => (
           <li key={tx.txid} className={styles.row}>
             <Transaction className={classNames(styles.txid, 'txid')} txid={tx.txid} />
             {this.renderAmounts(tx)}
@@ -51,7 +51,7 @@ export default class Transactions extends React.Component<Props> {
     if (forceRender || !isZero(amount)) {
       return (
         <div className={classNames(styles.amount, `amount${symbol}`)}>
-          {formatBalance(symbol, amount)} {symbol}
+          {formatBalance(symbol, amount)} {symbol === 'NEO' ? 'VRS' : 'VRC'}
         </div>
       )
     }

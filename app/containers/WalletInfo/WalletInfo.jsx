@@ -89,7 +89,7 @@ export default class WalletInfo extends Component<Props> {
       <div id='accountInfo'>
         <div id='balance'>
           <div className='split'>
-            <div className='label'>{ASSETS.NEO}</div>
+            <div className='label'>VRS</div>
             <div className='amountBig amountNeo'>{formatNEO(NEO)}</div>
             {/* <div className='fiat neoWalletValue'>
               {currencySymbol}
@@ -97,7 +97,7 @@ export default class WalletInfo extends Component<Props> {
             </div> */}
           </div>
           <div className='split'>
-            <div className='label'>{ASSETS.GAS}</div>
+            <div className='label'>VRC</div>
             <div className='amountBig amountGas'>
               <Tooltip title={formatGAS(GAS)} disabled={GAS === 0}>
                 {formatGAS(GAS, true)}
