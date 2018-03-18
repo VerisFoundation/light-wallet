@@ -4,10 +4,6 @@
   Electron wallet for the <b>VRS</b> blockchain.
 </p>
 
-<p align="center">
-  <img src="/wallet.png">
-</p>
-
 ## Overview
 
 ### What does it currently do
@@ -21,7 +17,6 @@
 * Claim VRC
 * Send to multiple recipients
 * Address book
-* Switch networks (Test/Main)
 
 ## Installation
 
